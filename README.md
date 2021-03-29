@@ -1,4 +1,4 @@
-# Module 5: Ansible
+# Module 4: Ansible
 
 ## Topics Covered:
 
