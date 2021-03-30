@@ -64,9 +64,7 @@ For instance, you can install latest Ansible on an Ubuntu server with the follow
 
 All the Cisco IOS XE modules are included in Ansible Core so no additional effort is required to begin automating your Cisco IOS XE devices.
 
-Step 1. Open the Ubuntu server PuTTY session by clicking on **Ubuntu** on the desktop. You can verify if Ansible is installed in our lab and related version with:
-
-Note: If you are using an existing PuTTY window, be sure to return to the home directory by typing **cd** into the Ubuntu server.
+Step 1. Open the terminal on the desktop. You can verify if Ansible is installed in our lab and related version with:
 
 ```
 auto@programmability:~/ ansible --version
@@ -119,7 +117,7 @@ These ensure that Ansible:
 
 The inventory file is where the devices under management are listed. Devices can be grouped, and a single device can be included in multiple groups.
 
-Step 3. On the Windows host, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+Step 3. On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 ```
 [csr1000v]
@@ -222,7 +220,7 @@ In this initial playbook we will provision a number of VRFs across all devices a
 
  
 
-On the Windows host, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
