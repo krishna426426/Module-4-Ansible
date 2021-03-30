@@ -80,7 +80,7 @@ Create an Ansible configuration file
 
 The Ansible configuration file stores the default configs used by all Playbooks.
 
-Step 2. On the Windows host, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+Step 2. On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 <img src="imgs/sublimeimg.png" style="zoom:30%;" />
 
@@ -305,7 +305,7 @@ For IOS XE features not yet supported by Ansible or for configurations based on 
 
  
 
- Step 1.     On the Windows host, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+ Step 1.     On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
@@ -380,7 +380,7 @@ In the previous step we used the module for IOS XE configuration CLIs.
 
  What about IOS XE exec CLIs? You need to use the **ios_command** module instead.
 
- Step 1.     On the Windows host, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+ Step 1.     On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
@@ -438,7 +438,7 @@ The **-v** option we added in the second playbook execution is the Ansible optio
 
 NETCONF connection is also available in Ansible. Using “netconf-config” module in ansible allows the user to send a configuration XML file to a networking device and detects if there was a configuration change.
 
-Step 1. To configure an interface description using NETCONF, on the Windows host, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
+Step 1. To configure an interface description using NETCONF, on the desktop, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
@@ -496,7 +496,7 @@ interface GigabitEthernet1/0/1
 end
 ```
 
-Step 3. To configure telemetry subscriptions using NETCONF, on the Windows host, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
+Step 3. To configure telemetry subscriptions using NETCONF, on the desktop, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
