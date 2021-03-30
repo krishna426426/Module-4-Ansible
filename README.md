@@ -177,7 +177,7 @@ SSH password: Cisco123
 
 Where:
 
-- **ios-xe** is the device group
+- **ios** is the device group
 - **ping** is the Ansible module to test device connectivity
 - **-u** is the option to provide the device SSH username
 - **-k** is the option to provide the device password at run time
@@ -287,7 +287,7 @@ Let’s quickly analyze the output:
 
  
 
- Step 1.     Now connect to one of the devices using the links in the Windows desktop (c9300) and verify that the VRFs have been configured.
+ Step 1.     Now connect to C9300 and verify that the VRFs have been configured.
 
 You should see the following:
 
@@ -356,7 +356,7 @@ auto@programmability:~/CL_Ansible$ ansible-playbook config.yaml -u admin -k
 SSH password: Cisco123
 ```
 
-Connect to one of the devices using the link in the Windows desktop and verify both the NTP and ACL configurations have been applied.
+Connect to C9300 and verify both the NTP and ACL configurations have been applied.
 
 You should see the following output:
 
@@ -483,7 +483,7 @@ SSH password:  Cisco123
 
 ```
 
-Connect to c9300 in the Windows desktop and verify interface description on gi1/0/1 have been applied.
+Connect to c9300 and verify interface description on gi1/0/1 have been applied.
 
 You should see the following output:
 
@@ -565,7 +565,7 @@ auto@programmability:~/CL_Ansible$ ansible-playbook Telemetry.yaml -u admin -k
 SSH password:  Cisco123
 ```
 
-Connect to c9300 in the Windows desktop and verify interface description on gi1/0/1 have been applied.
+Connect to c9300 and verify interface description on gi1/0/1 have been applied.
 
 You should see the following output:
 
