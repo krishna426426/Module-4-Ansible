@@ -148,15 +148,15 @@ Save the file as **hosts**
 
 
 
-In the above hosts file, we have three groups called **csr100v**, **c9300** and **c9800**, with one device each. Groups can be nested like the **ios-xe** group which includes all three groups.
+In the above hosts file, we have three groups called **csr100v**, **c9300** and **c9800**, with one device each. Groups can be nested like the **ios** group which includes all three groups.
 
-The default device connection is set to **network_cli** (that is CLIs over SSH), and Operating System type to ios for all the device in the **ios-xe** group, that is, for all the devices in this lab.
+The default device connection is set to **network_cli** (that is CLIs over SSH), and Operating System type to ios for all the device in the **ios** group, that is, for all the devices in this lab.
 
 Defaults can be overridden in playbooks and at the command line.
 
 We’ll see some override examples later in the lab.
 
-Note: In this lab we are going to use only c9300.
+**Note: In this lab we are going to use only c9300.**
 
 ## Test device connectivity
 
@@ -192,7 +192,7 @@ You should see the following:
 
 Thorough documentation for all Cisco IOS XE modules can be found on the Ansible website (http://docs.ansible.com/ansible/latest/modules/ios_vrf_module.html) or alternatively from the terminal, by utilizing the inbuilt documentation tool.
 
- Step 1.     Test the documentation tool with the **ios_config** module:
+ Step 4.     Test the documentation tool with the **ios_config** module:
 
 ```
 auto@programmability:~/CL_Ansible$ ansible-doc ios_config
@@ -214,7 +214,7 @@ In the next steps, you will build and execute several Ansible Playbooks
 
  
 
- Step 1.     Write a Playbook to configure VRFs
+ Step 5.     Write a Playbook to configure VRFs
 
 In this initial playbook we will provision a number of VRFs across all devices and remove (**purge**) any other VRF configured on the device. We will use the Ansible module called **ios_vrf** to automate this task.
 
@@ -251,11 +251,11 @@ If the colors do not match those shown in the screen shot, most likely something
 
  
 
- Step 3.     Let’s analyze the playbook top to bottom:
+ Step 6.     Let’s analyze the playbook top to bottom:
 
 - All the YAML files start with the triple dash characters.
 - **name**: name is assigned to the playbook “configure vrfs…”
-- **hosts**: define the group of devices, remember **ios-xe** group include both the cat3k and cat9k. By default, the Playbook executes against all the devices in the given group
+- **hosts**: define the group of devices, remember **ios** group include both the cat3k and cat9k. By default, the Playbook executes against all the devices in the given group
 - **gather_facts**: facts (HW and SW info) can be collected from the managed device. In this playbook it is disabled to speed up the playbook execution but you can turn it on replacing **no** with **yes**
 - **tasks**: there is a single task in this example and it’s named “configure vfrs and purge all others”
 - **ios_vrf**: is the Ansible module provided to manage VRFs on a Cisco device running IOS
@@ -266,7 +266,7 @@ By default, Ansible will use the inventory hosts file located in **/etc/ansible/
 
  
 
- Step 1.     Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
+ Step 7.     Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
 
 ```
 auto@programmability:~/CL_Ansible$ ansible-playbook vrf.yaml -u admin -k
@@ -285,7 +285,7 @@ Let’s quickly analyze the output:
 
  
 
- Step 1.     Now connect to C9300 and verify that the VRFs have been configured.
+ Step 8.     Now connect to C9300 and verify that the VRFs have been configured.
 
 You should see the following:
 
@@ -305,7 +305,7 @@ For IOS XE features not yet supported by Ansible or for configurations based on 
 
  
 
- Step 1.     On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+ Step 9.     On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
@@ -347,7 +347,7 @@ Notice the single ACL entries are applied after having removed the ACL with the 
 
  
 
- Step 1.     Return to the Ubuntu server and execute the playbook:
+ Step 10.     Return to the Ubuntu server and execute the playbook:
 
 ```
 auto@programmability:~/CL_Ansible$ ansible-playbook config.yaml -u admin -k
@@ -380,7 +380,7 @@ In the previous step we used the module for IOS XE configuration CLIs.
 
  What about IOS XE exec CLIs? You need to use the **ios_command** module instead.
 
- Step 1.     On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
+ Step 11.     On the desktop, open **Sublime Text 3** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
@@ -405,7 +405,7 @@ You should see the following:
 
 In the Playbook above we have only one task to execute two IOS XE exec commands.
 
- Step 1.     Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
+ Step 12.     Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
 
 ```
 auto@programmability:~/CL_Ansible$ ansible-playbook commands.yaml -u admin -k
@@ -418,7 +418,7 @@ You should see the following:
 
 The Playbook was executed successfully (OK=1) but…where is the CLI output???
 
- Step 1.     Try again but this time add a **-v** option at the end.
+ Step 13.     Try again but this time add a **-v** option at the end.
 
 ```
 auto@programmability:~/CL_Ansible$ ansible-playbook commands.yaml -u admin -k -v
