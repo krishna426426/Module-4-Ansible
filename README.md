@@ -438,65 +438,7 @@ The **-v** option we added in the second playbook execution is the Ansible optio
 
 NETCONF connection is also available in Ansible. Using “netconf-config” module in ansible allows the user to send a configuration XML file to a networking device and detects if there was a configuration change.
 
-Step 1. To configure an interface description using NETCONF, on the desktop, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
-
-```
----
-
-- name: test Ansible connection netconf on Cisco IOS XE
-  hosts: c9300
-  vars:
-      ansible_connection: netconf
-      ansible_network_os: default
-  gather_facts: no
-
-  tasks:
-  - name: set Management interface description
-    netconf_config:
-      xml: |
-        <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
-          <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-            <interface>
-              <name>GigabitEthernet1/0/1</name>
-              <description>Managed by Ansible using netconf connection</description>
-            </interface>
-          </interfaces>
-        </config> 
-```
-
-Save the file as **netconf-description.yaml**
-
-You should see the following:
-
-<img src="imgs/netconfdesc.png" style="zoom:65%;" />
-
-- In     this playbook we are using “**vars**”     to define ansible_connection and ansible_network_os to use locally instead     of changing in the ansible.cfg.
-- **netconf_config** is the module in     ansible to configure on the network device using NETCONF connection
-
-Step 2. Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
-
-```
-auto@programmability:~/CL_Ansible$ ansible-playbook netconf-description.yaml -u admin -k
-SSH password:  Cisco123
-
-```
-
-Connect to c9300 and verify interface description on gi1/0/1 have been applied.
-
-You should see the following output:
-
-```
-C9300#sh run int gi 1/0/1
-Building configuration...
-
-Current configuration : 95 bytes
-!
-interface GigabitEthernet1/0/1
- description Managed by Ansible using netconf connection
-end
-```
-
-Step 3. To configure telemetry subscriptions using NETCONF, on the desktop, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
+Step 1. To configure telemetry subscriptions using NETCONF, on the desktop, open **Sublime Text** from the Start menu, create a new file and enter the following into the window:
 
 ```
 ---
@@ -556,7 +498,14 @@ You should see the following:
 
 <img src="imgs/telemetryyaml.png" style="zoom:60%;" />
 
-Step 4. Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
+
+
+- In     this playbook we are using “**vars**”     to define ansible_connection and ansible_network_os to use locally instead     of changing in the ansible.cfg.
+- **netconf_config** is the module in     ansible to configure on the network device using NETCONF connection
+
+
+
+Step 2. Now run the playbook in the Ubuntu Server with the following command and provide the password **Cisco123**:
 
 ```
 auto@programmability:~/CL_Ansible$ ansible-playbook Telemetry.yaml -u admin -k
