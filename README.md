@@ -95,7 +95,7 @@ deprecation_warnings=False
 
 
 
-Save the file as **ansible.cfg** in CL_Ansible dir as following:
+Save the file as **ansible.cfg** in CL_Ansible directory as following:
 
 <img src="imgs/ansiblecfg1.png" style="zoom:45%;" />
 
